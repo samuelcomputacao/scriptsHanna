@@ -1,0 +1,21 @@
+<changeSet id="20200612162547" author="synchro">
+	<sql>
+		CREATE COLUMN TABLE  "${synchro.schema}"."/SYN/DIEF_PI_REGISTRO_TIPO_74"(
+			"MANDT" NVARCHAR(3) NOT NULL,
+			"EMPRESA" NVARCHAR(4) NOT NULL,
+			"FILIAL" NVARCHAR(4) NOT NULL,
+			"DT_INI" NVARCHAR(8) NOT NULL,
+			"DT_FIN" NVARCHAR(8) NOT NULL,
+			"DT_INV" NVARCHAR(8),
+			"COD_ITEM" NVARCHAR(60),
+			"QTD" DECIMAL(25,3),
+			"VL_UNIT" DECIMAL(25,6),
+			"IND_PROP" NVARCHAR(1),
+			"CNPJ" NVARCHAR(16),
+			"IE" NVARCHAR(14),
+			"UF" NVARCHAR(3)) UNLOAD PRIORITY 5 AUTO MERGE
+	</sql>
+	<rollback>
+		DROP TABLE FROM "${synchro.schema}"."/SYN/DIEF_PI_REGISTRO_TIPO_74";
+	</rollback>
+</changeSet>
