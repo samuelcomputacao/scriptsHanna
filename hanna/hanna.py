@@ -54,7 +54,7 @@ class Hanna:
         saida = ''
         nome,tipo,tamanho,scala,nulavel,default,maxValue, minValue = row
         saida += '"%s" %s' % (nome,tipo)
-        if tamanho != None :
+        if tamanho != None and str(tipo).lower() != 'bigint':
             saida += '(%d' % tamanho
             if scala != None:
                 saida += ',%d)' % scala
