@@ -57,7 +57,7 @@ class Changelog:
     def changelogTabela(self,params):
         pathOrigem = self.hanna.getTableSQL(params.schema,params.nome)
         pathCreate = Path('create-%s.xml' % (params.nome.lower().replace("_",'-')))
-        drop = 'DROP TABLE FROM "${synchro.schema}"."/SYN/%s";' % params.nome
+        drop = 'DROP TABLE "${synchro.schema}"."/SYN/%s";' % params.nome
 
         saida = open(pathCreate.getPath(),'w')
         origem = open(pathOrigem,'r')
