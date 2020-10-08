@@ -122,6 +122,15 @@ class Changelog:
                     linha  = linha.replace('"SYN4TDF_EVOLUCAO"','"${synchro.schema}"')
                 else:
                     linha  = linha.replace('SYN4TDF_EVOLUCAO','"${synchro.schema}"')
+            if('_SYS_BIC' in linha):
+                if('"_SYS_BIC"' in linha):
+                    linha  = linha.replace('"_SYS_BIC"','"${sap.schema.calcviews}"')
+                else:
+                    linha  = linha.replace('_SYS_BIC','"${sap.schema.calcviews}"')
+            if('evolucao.br.com.synchro' in linha):
+                linha = linha.replace('evolucao.br.com.synchro','${synchro.package}')
+            if('suporte.br.com.synchro' in linha):
+                linha = linha.replace('suporte.br.com.synchro','${synchro.package}')
             if(auxCasca):        
                 if(('begin' in linha) or ('BEGIN' in linha)):
                     crateCasca.write('\t\t%s' % linha)
